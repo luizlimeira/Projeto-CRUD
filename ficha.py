@@ -1,11 +1,18 @@
-from utils import carregar_dados, salvar_dados
+def carregar_fichas():
+    return []
 
-CAMINHO = "cardapio.json"
+def salvar_fichas(fichas):
+    pass
 
-def listar_cardapio():
-    return carregar_dados(CAMINHO)
+def adicionar_ficha(fichas):
+    print("Função de adicionar ficha")
+    return fichas
 
-def adicionar_item(nome, descricao, preco):
-    dados = carregar_dados(CAMINHO)
-    dados.append({"nome": nome, "descricao": descricao, "preco": preco})
-    salvar_dados(CAMINHO, dados)
+def visualizar_fichas(fichas):
+    print("Função de visualizar fichas")
+
+def editar_fichas(fichas):
+    print("Função de editar fichas")
+
+def excluir_fichas(fichas):
+    print("Função de excluir fichas")
