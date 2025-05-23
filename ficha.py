@@ -5,7 +5,32 @@ def salvar_fichas(fichas):
     pass
 
 def adicionar_ficha(fichas):
-    print("Função de adicionar ficha")
+    nova_ficha = {
+        'categoria': input("Categoria: ").upper(),
+        'nome': input("Nome: ").capitalize(),
+        'ingredientes': [],
+        'preparo': []
+    }
+    
+    print("\nINGREDIENTES:")
+    while True:
+        ingred = input("Ingrediente (deixe em branco para parar): ").capitalize()
+        if not ingred:
+            break
+        quant = input("Quantidade: ")
+        nova_ficha['ingredientes'].append({'ingrediente': ingred, 'quantidade': quant})
+    
+    print("\nMODO DE PREPARO:")
+    passo_num = 1
+    while True:
+        descricao = input(f"Passo {passo_num} (deixe em branco para parar): ").capitalize()
+        if not descricao:
+            break
+        nova_ficha['preparo'].append({'passo': passo_num, 'descricao': descricao})
+        passo_num += 1
+    
+    fichas.append(nova_ficha)
+    print("\nFicha adicionada com sucesso!")
     return fichas
 
 def visualizar_fichas(fichas):
