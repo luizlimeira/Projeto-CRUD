@@ -34,7 +34,22 @@ def adicionar_ficha(fichas):
     return fichas
 
 def visualizar_fichas(fichas):
-    print("Função de visualizar fichas")
+    if not fichas:
+        print("\nNenhuma ficha cadastrada ainda!")
+        return
+    
+    for ficha in fichas:
+        print("\n" + "=" * 40)
+        print(f"Nome: {ficha['nome']}")
+        print(f"Categoria: {ficha['categoria']}")
+        
+        print("\nIngredientes:")
+        for ingred in ficha['ingredientes']:
+            print(f"- {ingred['quantidade']} de {ingred['ingrediente']}")
+        
+        print("\nModo de Preparo:")
+        for passo in ficha['preparo']:
+            print(f"{passo['passo']}. {passo['descricao']}")
 
 def editar_fichas(fichas):
     print("Função de editar fichas")
