@@ -40,4 +40,14 @@ def editar_fichas(fichas):
     print("Função de editar fichas")
 
 def excluir_fichas(fichas):
-    print("Função de excluir fichas")
+    nome = input("Digite o nome da ficha que deseja excluir: ").strip().lower()
+    
+    for ficha in fichas:
+        if ficha['nome'].lower() == nome:
+            print(f"\nFicha encontrada: {ficha['nome']}")
+            if input("Tem certeza que deseja excluir? (s/n): ").lower() == 's':
+                fichas.remove(ficha)
+                print("Ficha excluída com sucesso.")
+            return
+    
+    print("Ficha não encontrada.")
