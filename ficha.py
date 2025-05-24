@@ -4,13 +4,14 @@ import os
 ARQUIVO_FICHAS = 'ficha.json'
 
 def carregar_fichas():
-    if not os.path.exists(ARQUIVO_FICHAS):
+    try:
+        with open(ARQUIVO_FICHAS, 'r') as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        print("Arquivo inválido ou não encontrado. Criando novo...")
         with open(ARQUIVO_FICHAS, 'w') as f:
             json.dump([], f)
         return []
-    
-    with open(ARQUIVO_FICHAS, 'r') as f:
-        return json.load(f)
 
 def salvar_fichas(fichas):
     with open(ARQUIVO_FICHAS, 'w') as f:
