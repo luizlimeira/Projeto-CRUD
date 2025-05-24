@@ -52,7 +52,17 @@ def visualizar_fichas(fichas):
             print(f"{passo['passo']}. {passo['descricao']}")
 
 def editar_fichas(fichas):
-    print("Função de editar fichas")
+    nome = input("Digite o nome da ficha que deseja editar: ").strip().lower()
+    
+    for ficha in fichas:
+        if ficha['nome'].lower() == nome:
+            print(f"\nEditando ficha: {ficha['nome']}")
+            ficha['nome'] = input("Novo nome: ").capitalize()
+            ficha['categoria'] = input("Nova categoria: ").upper()
+            print("Ficha editada com sucesso!")
+            return
+    
+    print("Ficha não encontrada.")
 
 def excluir_fichas(fichas):
     nome = input("Digite o nome da ficha que deseja excluir: ").strip().lower()
