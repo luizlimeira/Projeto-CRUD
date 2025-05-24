@@ -1,8 +1,20 @@
+import json
+import os
+
+ARQUIVO_FICHAS = 'ficha.json'
+
 def carregar_fichas():
-    return []
+    if not os.path.exists(ARQUIVO_FICHAS):
+        with open(ARQUIVO_FICHAS, 'w') as f:
+            json.dump([], f)
+        return []
+    
+    with open(ARQUIVO_FICHAS, 'r') as f:
+        return json.load(f)
 
 def salvar_fichas(fichas):
-    pass
+    with open(ARQUIVO_FICHAS, 'w') as f:
+        json.dump(fichas, f, indent=4)
 
 def adicionar_ficha(fichas):
     nova_ficha = {
