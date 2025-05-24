@@ -91,3 +91,32 @@ def excluir_fichas(fichas):
             return
     
     print("Ficha não encontrada.")
+
+def menu_fichas():
+    while True:
+        fichas = carregar_fichas()
+        
+        print("\n--- MENU FICHAS ---")
+        print("1. Adicionar Ficha")
+        print("2. Visualizar Fichas")
+        print("3. Editar Ficha")
+        print("4. Excluir Ficha")
+        print("0. Voltar")
+        
+        opcao = input("Escolha uma opção: ")
+        
+        if opcao == "1":
+            fichas = adicionar_ficha(fichas)
+        elif opcao == "2":
+            visualizar_fichas(fichas)
+        elif opcao == "3":
+            editar_fichas(fichas)
+        elif opcao == "4":
+            excluir_fichas(fichas)
+        elif opcao == "0":
+            return
+        else:
+            print("\nOpção inválida!")
+
+if _name_ == "_ficha_":
+    menu_fichas()
