@@ -43,6 +43,7 @@ def adicionar_ficha(fichas):
     
     fichas.append(nova_ficha)
     print("\nFicha adicionada com sucesso!")
+    salvar_fichas(fichas)
     return fichas
 
 def visualizar_fichas(fichas):
@@ -72,6 +73,7 @@ def editar_fichas(fichas):
             ficha['nome'] = input("Novo nome: ").capitalize()
             ficha['categoria'] = input("Nova categoria: ").upper()
             print("Ficha editada com sucesso!")
+            salvar_fichas(fichas)
             return
     
     print("Ficha não encontrada.")
@@ -85,6 +87,7 @@ def excluir_fichas(fichas):
             if input("Tem certeza que deseja excluir? (s/n): ").lower() == 's':
                 fichas.remove(ficha)
                 print("Ficha excluída com sucesso.")
+            salvar_fichas(fichas)
             return
     
     print("Ficha não encontrada.")
